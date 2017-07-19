@@ -1,0 +1,103 @@
+<div class="container">
+
+     <nav class="navbar navbar-inverse">
+
+<div class="col-md-4 col-md-offset-0">
+
+<div style="margin-top: 10px;">
+
+  <button (click)='deleteAllPac()'  type="button" class="btn btn-default" aria-label="Left Align">
+                 <span class="glyphicon glyphicon-trash" aria-hidden="true">DeleteAll</span>
+              </button>
+
+  <button (click)='addPac(item)'  type="button" class="btn btn-default" aria-label="Left Align">
+                 <span class="glyphicon glyphicon-plus-sign" aria-hidden="true">Add</span>
+              </button>
+      
+    
+</div>
+</div>
+
+<div class="col-md-4 col-md-offset-1">
+  
+              <div style="font-size:30px ; color: white; margin-top: 10px;">
+               <span  class="glyphicon glyphicon-rub" aria-hidden="true"></span>
+              </div>
+          </div>
+
+
+
+          <div class="col-md-4 col-md-offset-6">
+            <h2 style="color:white; margin-top: -40px; margin-left: -53px;">Package Table</h2>
+
+
+          </div>
+
+          <div class="col-md-4 col-md-offset-6">
+
+ <div style="margin-top: -40px; margin-left: 350px;">
+       <input #input1 type="text" (keyup)="0" 
+      placeholder="Search"/>
+ </div>
+
+          </div>
+
+   </nav>
+
+
+<div class="row">
+          <div class="col-md-12 col-md-offset-0">
+<div class="agile-grids">	
+				<!-- tables -->
+				
+				<div class="agile-tables">
+					<div class="w3l-table-info">
+
+
+<table class="table table-hover">
+  <thead>
+
+    <th></th>
+   
+    <th  style="font-size: 18px ; font-style: inherit;">   Package   </th>
+    <th  style="font-size: 18px ; font-style: inherit;">Amount</th>
+    <th  style="font-size: 18px ; font-style: inherit;">Description</th>
+    <th  style="font-size: 18px ; font-style: inherit;">Deposit</th>
+    <th  style="font-size: 18px ; font-style: inherit;">Order date</th>
+    <th  style="font-size: 18px ; font-style: inherit;"> User name  </th>
+    <th  style="font-size: 18px ; font-style: inherit;"> Mail </th>
+ 
+
+  </thead>
+<tr *ngFor="let item of  (allPacJoin|pacfilter:input1.value|paginate: { itemsPerPage: 5, currentPage: page } )">
+  <td><input type="checkbox" (change)="onCheck(item)"></td>
+ 
+  <td>  {{item.pac_name}}  </td>
+   <td>  {{item.pac_amount}}  </td>
+    <td>  {{item.pac_desc}}     </td>
+    <td>  {{item.pac_deposit}} </td>
+    <td>  {{item.pac_or_date}}  </td>
+      <td>  {{item.user_name}}  </td> 
+     <td><button (click)='sendemail()'  type="button" class="btn btn-default" aria-label="Left Align">
+                Email
+              </button>
+    </td>
+</tr>
+</table>
+					</div>
+				</div>
+</div>
+<div class="has-text-centered">
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>
+
+
+</div>
+</div>
+</div>
+    
+
+
+
+
+

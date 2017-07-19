@@ -1,0 +1,146 @@
+<div class="container">
+      <div class="row">
+  
+	<div class="col-sm-4">
+
+   <form (ngSubmit)="addbook()" #addform="ngForm">
+
+      
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="_book_name" 
+        name="_book_name" 
+        class="form-control" id="bookname"
+         required #bookname="ngModel">
+      </div>
+       
+
+      <div class="form-group">
+        <label for="name">Soh</label>
+        <input type="text" [(ngModel)]="_book_soh" 
+        name="_book_soh" 
+        class="form-control" id="booksoh"
+         required #booksoh="ngModel">
+      </div>
+
+
+      <div class="form-group">
+        <label for="name">Cover pic</label>
+        <input type="file"  (change)="fileChange(input)" #input />
+      </div>
+
+<div *ngFor="let file_src of file_srcs; let i = index">  
+  <img [attr.src]='file_src' alt=""/>
+</div>
+
+      <div class="form-group">
+        <label for="name">ISBN No</label>
+        <input type="text" [(ngModel)]="_book_isbn_no" 
+        name="_book_isbn_no" 
+        class="form-control" id="bookisbnno"
+         required #bookisbnno="ngModel">
+      </div>
+
+
+      <div class="form-group">
+        <label for="name">Author Name 1</label>
+        <input type="text" [(ngModel)]="_book_author_name1" 
+        name="_book_author_name1" 
+        class="form-control" id="bookauthorname1"
+         required #bookauthorname1="ngModel">
+      </div>
+
+
+      <div class="form-group">
+        <label for="name">Author Name 2</label>
+        <input type="text" [(ngModel)]="_book_author_name2" 
+        name="_book_author_name2" 
+        class="form-control" id="bookauthorname2"
+          #bookauthorname2="ngModel">
+      </div>
+
+
+      <div class="form-group">
+        <label for="name">Author Name 3</label>
+        <input type="text" [(ngModel)]="_book_author_name3" 
+        name="_book_author_name3" 
+        class="form-control" id="bookauthorname3"
+          #bookauthorname3="ngModel">
+      </div>
+
+      
+      <div class="form-group">
+        <label for="name">Description</label>
+        <input type="text" [(ngModel)]="_book_descr" 
+        name="_book_descr" 
+        class="form-control" id="bookdescr"
+         required #bookdescr="ngModel">
+      </div>
+
+
+      <div class="form-group">
+        <label for="name">Pub year</label>
+        <input type="text" [(ngModel)]="_book_pub_year" 
+        name="_book_pub_year" 
+        class="form-control" id="bookpubyear"
+         required #bookpubyear="ngModel">
+      </div>
+
+      
+      <div class="form-group">
+        <label for="name">Language</label>
+        <input type="text" [(ngModel)]="_book_language" 
+        name="_book_language" 
+        class="form-control" id="booklanguage"
+         required #booklanguage="ngModel">
+      </div>
+
+      
+      <div class="form-group">
+        <label for="name">Is active</label>
+        <input type="text" [(ngModel)]="_book_is_active" name="_book_is_active" 
+        class="form-control" id="bookisactive"
+         required #bookisactive="ngModel">
+      </div>
+
+
+      <div class="form-group">
+        <label for="name">rating</label>
+        <input type="text" [(ngModel)]="_book_rating" 
+        name="_book_rating" 
+        class="form-control" id="bookrating"
+         required #bookrating="ngModel">
+      </div>
+
+
+<div class="form-group">
+<label for="power">Cat name</label>
+<select class="form-control" id="category"
+[(ngModel)]="_fk_cat_id" name="category"
+required>
+<option *ngFor="let item of allCategory" [value]="item.pk_cat_id" >{{item.cat_name}}</option>
+</select>
+</div>
+
+  
+  <div class="form-group">
+<label for="power">Subcat name</label>
+<select class="form-control" id="subcategory"
+[(ngModel)]="_fk_subcat_id" name="subcategory"
+required >
+<option *ngFor="let item of allSubcategory" [value]="item.pk_subcat_id">{{item.subcat_name}}</option>
+</select>
+</div>
+
+
+      <button type="submit" class="btn btn-default form-control"  >Submit</button>
+    </form>
+	</div>
+      </div>
+</div>
+
+
+        
+
+
+

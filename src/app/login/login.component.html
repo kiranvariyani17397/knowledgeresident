@@ -1,0 +1,34 @@
+<div class="container">
+     
+  
+	<div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+ 
+  <div class="panel-body">
+  
+
+   <form (ngSubmit)="validuser()" #addform="ngForm">
+      
+       
+      <div class="input-group">
+          <span class="input-group-addon" id="basic-addon1">Email_id</span>
+        <input type="text" [(ngModel)]="_email_id" 
+        name="email_id" 
+        class="form-control" id="emailid"
+         required #emailid="ngModel">
+      </div>
+<br>
+      <div class="input-group">
+         <span class="input-group-addon" id="basic-addon1">Password</span>
+        <input type="text" [(ngModel)]="_pwd" 
+        name="pwd" 
+        class="form-control" id="pwd"
+         required #pwd="ngModel">
+      </div>
+ <br>      
+      <button type="submit" class="btn btn-default form-control" [disabled]="!addform.form.valid" >Submit</button>
+    </form>
+	</div>
+    </div>
+      </div>
+</div>

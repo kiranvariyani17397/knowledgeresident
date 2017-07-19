@@ -1,0 +1,192 @@
+<div class="container">
+
+
+   <nav class="navbar navbar-inverse">
+
+<div class="col-md-4 col-md-offset-0">
+
+<div style="margin-top: 10px;">
+  <button (click)='deleteAllBook(item)'  type="button" class="btn btn-default" aria-label="Left Align">
+                 <span class="glyphicon glyphicon-trash" aria-hidden="true">DeleteAll</span>
+              </button>
+   
+<button (click)='addBook()'  type="button" class="btn btn-default" aria-label="Left Align">
+                 <span class="glyphicon glyphicon-plus-sign" aria-hidden="true">Add</span>
+              </button>
+
+</div>
+</div>
+
+<div class="col-md-4 col-md-offset-1">
+  
+              <div style="font-size:30px ; color: white; margin-top: 10px;">
+               <span  class="glyphicon glyphicon-book" aria-hidden="true"></span>
+              </div>
+          </div>
+
+          <div class="col-md-4 col-md-offset-6">
+            <h2 style="color:white; margin-top: -40px; margin-left: -53px;">Book Table</h2>
+
+          </div>
+
+          <div class="col-md-4 col-md-offset-6">
+
+ <div style="margin-top: -40px; margin-left: 350px;">
+       <input #input1 type="text" (keyup)="0" 
+      placeholder="Search"/>
+ </div>
+
+          </div>
+
+   </nav>
+
+<div class="row">
+          <div class="col-md-10 col-md-offset-0">
+
+<div class="agile-grids">	
+				<!-- tables -->
+				
+				<div class="agile-tables">
+					<div class="w3l-table-info">
+
+
+<table class="table table-hover"> 
+  <thead>
+    <th>  </th>
+    
+    <th style="font-size: 18px ; font-style: inherit;">Name</th>
+    <th style="font-size: 18px ; font-style: inherit;">Soh   </th>
+    <th style="font-size: 18px ; font-style: inherit;">Cover pic</th>    
+    <th style="font-size: 18px ; font-style: inherit;">Rating</th>            
+    <th style="font-size: 18px ; font-style: inherit;">Category</th>            
+    <th style="font-size: 18px ; font-style: inherit;">Sub category</th>
+    <th style="font-size: 18px ; font-style: inherit;">View more</th>
+    <th style="font-size: 18px ; font-style: inherit;">Action</th>
+  </thead>
+   
+<tr *ngFor="let item of (allBookJoin|bookfilter:input1.value|paginate: { itemsPerPage: 5, currentPage: page })">
+  <td><input type="checkbox" (change)="onCheck(item)"></td>
+  <td>{{item.book_name}}</td>
+  <td>{{item.book_soh}}</td>
+  <td><img src="https://knowledgeresident2.herokuapp.com/{{item.book_cover_pic}}" style=" height: 50%; width: 100%;" /></td>
+  <td>{{item.book_rating}}</td>
+  <td>{{item.cat_name}}</td>
+  <td>{{item.subcat_name}}</td>
+    <td>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal" >
+  View More
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel" style="color: black;">{{item.book_name}}</h4>
+      </div>
+      <div class="modal-body">
+<div class="row">
+          <div class="col-md-4">
+            
+                <img src="https://knowledgeresident2.herokuapp.com//images/3EEy3281868.png" style=" height: 200px; width: 150px; " />            
+            </div>
+          
+        </div>
+
+        <div class="row">
+          <div class="col-md-3 col-md-offset-3" style=" margin-top: -20%; margin-left: 50%;">
+            
+            <p style="font-size: 30px; font-weight: 600">Author:  {{item.book_author_name1}}</p> 
+            </div>
+          
+        </div>
+<div class="row">
+
+
+<div class="col-md-10 col-md-offset-1">
+
+
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab" style="color: black;">Information</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" style="color: black;">Summary</a></li>
+    
+  </ul>
+
+  <!-- Tab panes -->
+  <div >
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">
+<br>
+  <table class="table" border="1">
+  <tr>
+  <td style="color: black;">Publication Year</td>
+  <td style="color: black;">{{item.book_pub_year}}</td>
+  </tr>  
+<tr>
+  <td style="color: black;">ISBN</td>
+  <td style="color: black;">{{item.book_isbn_no}}</td>
+  </tr>  
+
+<tr>
+  <td style="color: black;">Language</td>
+  <td style="color: black;">{{item.book_language}}</td>
+  </tr>  
+
+<tr>
+  <td style="color: black;">Ratings</td>
+  <td style="color: black;">{{item.book_rating}}</td>
+  </tr>  
+  </table>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="profile">
+<br><br>
+    <p style="color: black;">{{item.book_descr}}</p>
+
+    </div>
+    
+  </div>
+  </div>
+
+          </div>
+      </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+   
+    </td>
+    <td>
+
+
+            
+              <button (click)='updateBook(item)'  type="button" class="btn btn-primary" aria-label="Left Align">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true">Edit</span>
+              </button>
+
+               <button (click)='deleteBook(item)' type="button" class="btn btn-danger" aria-label="Left Align">
+                            <span class="glyphicon glyphicon-trash" aria-hidden="true">Delete</span>
+               </button>
+    </td>
+</tr>
+</table>
+
+</div>
+
+          </div>
+</div>
+<div class="has-text-centered">
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>
+
+
+    </div>
+</div>
+</div>
+    

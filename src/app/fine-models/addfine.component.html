@@ -1,0 +1,61 @@
+<div class="container">
+      <div class="row">
+  
+	<div class="col-sm-4">
+
+   <form (ngSubmit)="addfine()" #addform="ngForm">
+      
+       
+      <div class="form-group">
+        <label for="name">Type</label>
+        <input type="text" [(ngModel)]="_fine_type" 
+        name="_city_name" 
+        class="form-control" id="cityname"
+         required #cityname="ngModel">
+      </div>
+
+      <div class="form-group">
+        <label for="name">Amount</label>
+        <input type="text" [(ngModel)]="_fine_amount" 
+        name="_fk_state_id" 
+        class="form-control" id="fkstateid"
+         required #stateid="ngModel">
+      </div>
+       
+
+      <div class="form-group">
+        <label for="name">Return date</label>
+        <input type="text" [(ngModel)]="_fine_actual_r_date" 
+        name="_fk_state_id" 
+        class="form-control" id="fkstateid"
+         required #stateid="ngModel">
+      </div>
+
+
+      <div class="form-group">
+        <label for="name">Book id</label>
+        <input type="text" [(ngModel)]="_fk_book_id" 
+        name="_fk_state_id" 
+        class="form-control" id="fkstateid"
+         required #stateid="ngModel">
+      </div>
+
+
+      <div class="form-group">
+        <label for="name">User id</label>
+        <input type="text" [(ngModel)]="_fk_user_id" 
+        name="_fk_state_id" 
+        class="form-control" id="fkstateid"
+         required #stateid="ngModel">
+      </div>
+
+      <button type="submit" class="btn btn-default form-control" [disabled]="!addform.form.valid" >Submit</button>
+    </form>
+	</div>
+      </div>
+</div>
+
+
+
+
+

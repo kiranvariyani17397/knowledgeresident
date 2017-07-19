@@ -1,0 +1,38 @@
+<div class="container">
+      <div class="row">
+
+	<div class="col-sm-4">
+
+   <form (ngSubmit)="addsubcategory()" #addform="ngForm">
+      
+       
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="_subcat_name" 
+        name="_subcat_name" 
+        class="form-control" id="subcatname"
+         required #subcatname="ngModel">
+      </div>
+       
+
+
+
+<div class="form-group">
+ 
+<label for="power">Cat name</label>
+ 
+<select class="form-control" id="category"
+ 
+[(ngModel)]="_fk_cat_id" name="category"
+ 
+required>
+<option *ngFor="let item of allCategory" [value]="item.pk_cat_id">{{item.cat_name}}</option>
+</select>
+ 
+</div>
+
+      <button type="submit" class="btn btn-default form-control" [disabled]="!addform.form.valid" >Submit</button>
+    </form>
+	</div>
+      </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="container">
+      <div class="row">
+  
+	<div class="col-sm-4">
+
+   <form (ngSubmit)="addstate()" #addform="ngForm">
+      
+       
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="_state_name" 
+        name="_state_name" 
+        class="form-control" id="statename"
+         required #statename="ngModel">
+      </div>
+       
+      <button type="submit" class="btn btn-default form-control" [disabled]="!addform.form.valid" >Submit</button>
+    </form>
+	</div>
+      </div>
+</div>

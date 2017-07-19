@@ -1,0 +1,85 @@
+<div class="container">
+      <div class="row">
+  
+	<div class="col-sm-4">
+
+    <div class="panel panel-default">
+  <div class="panel-heading">Panel heading without title</div>
+  <div class="panel-body">
+    Panel content
+  
+
+
+
+   <form (ngSubmit)="addsuggestion()" #addform="ngForm">
+      
+       
+      <div class="form-group">
+        <label for="name">Book Name</label>
+        <input type="text" [(ngModel)]="_suggestion_book_name" 
+        name="_suggestion_book_name" 
+        class="form-control" id="suggestionbookname"
+         required #suggestionbookname="ngModel">
+      </div>
+       <div [hidden]="suggestionbookname.valid "
+class="alert alert-danger">
+ 
+name is required
+ 
+</div>
+
+
+      <div class="form-group">
+        <label for="name">Book Drsc</label>
+        <input type="text" [(ngModel)]="_suggestion_descr" 
+        name="_suggestion_descr" 
+        class="form-control" id="suggestiondescr"
+         required #suggestiondescr="ngModel">
+      </div>
+  <div [hidden]="suggestiondescr.valid "
+class="alert alert-danger">
+ 
+descr is required
+ 
+</div>
+
+
+<div class="form-group">
+        <label for="name">suggestion Type</label>
+        <input type="text" [(ngModel)]="_suggestion_type" 
+        name="_suggestion_type" 
+        class="form-control" id="suggestiontype"
+         required #suggestiontype="ngModel">
+      </div>
+
+  <div [hidden]="suggestiontype.valid "
+class="alert alert-danger">
+ 
+type is required
+ 
+</div>
+
+
+<div class="form-group">
+        <label for="name">User Id</label>
+        <input type="text" [(ngModel)]="_fk_user_id" 
+        name="_fk_user_id" 
+        class="form-control" id="fkuserid"
+         required #fkuserid="ngModel">
+      </div>
+      
+
+<div [hidden]="fkuserid.valid "
+class="alert alert-danger">
+ 
+user id is required
+ 
+</div>
+
+      <button type="submit" class="btn btn-default form-control" [disabled]="!addform.form.valid" >Submit</button>
+    </form>
+    </div>
+	</div>
+      </div>
+</div>
+</div>
